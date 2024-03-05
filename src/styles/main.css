@@ -1,8 +1,13 @@
 /* Reset and base styles  */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   padding: 0px;
   margin: 0px;
   border: none;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
 *,
@@ -107,4 +112,11 @@ label {
 
 legend {
   display: block;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 15px;
+  position: relative;
 }

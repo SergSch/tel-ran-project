@@ -1,0 +1,13 @@
+.discount {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  background: var(--green);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.03em;
+  color: var(--white);
+}

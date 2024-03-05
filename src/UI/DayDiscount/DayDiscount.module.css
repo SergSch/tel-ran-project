@@ -1,0 +1,11 @@
+.wrapper {
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 126%;
+  text-align: center;
+  color: var(--white);
+  background: var(--green);
+  max-width: fit-content;
+}
