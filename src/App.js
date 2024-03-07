@@ -10,7 +10,21 @@ import Footer from './layout/Footer/Footer';
 import AllProductsPage from './pages/AllProductsPage/AllProductsPage';
 import AllSalesPage from './pages/AllSalesPage/AllSalesPage';
 
+import { FaAnglesUp } from 'react-icons/fa6';
+import { useEffect } from 'react';
+
 function App() {
+  useEffect(() => {
+    const scrollButton = document.querySelector('.scroll-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        scrollButton.classList.remove('d-none');
+      } else {
+        scrollButton.classList.add('d-none');
+      }
+    });
+  });
+
   return (
     <div>
       <Header />
@@ -25,6 +39,14 @@ function App() {
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
+      <button
+        className="scroll-to-top"
+        onClick={() => {
+          window.scrollTo(0, 0);
+        }}
+      >
+        <FaAnglesUp />
+      </button>
     </div>
   );
 }
