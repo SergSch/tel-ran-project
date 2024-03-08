@@ -23,7 +23,7 @@ function App() {
         scrollButton.classList.add('d-none');
       }
     });
-  });
+  }, []);
 
   return (
     <div>

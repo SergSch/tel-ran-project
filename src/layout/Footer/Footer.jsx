@@ -38,16 +38,26 @@ const Footer = () => {
               >
                 <FooterSmallTitle text="Socials" />
                 <div className={classes.social}>
-                  <img
-                    src={instagram}
-                    alt="instagram"
-                    className={` ${theme === 'dark' ? classes.menuDark : ''}`}
-                  />
-                  <img
-                    src={whatsapp}
-                    alt="whatsapp"
-                    className={` ${theme === 'dark' ? classes.menuDark : ''}`}
-                  />
+                  <a
+                    href="https://www.instagram.com/startainstitute?igsh=MWR1azFwM3dhaHcxeQ=="
+                    target="_blank"
+                  >
+                    <img
+                      src={instagram}
+                      alt="instagram"
+                      className={` ${theme === 'dark' ? classes.menuDark : ''}`}
+                    />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/startainstitute?igsh=MWR1azFwM3dhaHcxeQ=="
+                    target="_blank"
+                  >
+                    <img
+                      src={whatsapp}
+                      alt="whatsapp"
+                      className={` ${theme === 'dark' ? classes.menuDark : ''}`}
+                    />
+                  </a>
                 </div>
               </div>
             </div>

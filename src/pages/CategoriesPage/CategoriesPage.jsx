@@ -5,11 +5,12 @@ import classes from './CategoriesPage.module.css';
 import { useSelector } from 'react-redux';
 
 const CategoriesPage = () => {
-  const { data, isLoading, isError } = useGetAllCategoriesQuery();
+  const { data, isLoading, isError, error } = useGetAllCategoriesQuery();
 
   const { theme } = useSelector((state) => state.theme);
   return (
     <div className={`${classes.wrap} ${theme === 'dark' ? classes.dark : ''}`}>
+      {isError ? <h3>Your page is {error.data.error}</h3> : null}
       <div className="container">
         <div className={classes.wrapper}>
           <div className="breadCrumbs"></div>
@@ -20,9 +21,9 @@ const CategoriesPage = () => {
             </div>
           )}
           <div className={classes.categoryWrapper}>
-            {/* {data?.map((category) => (
+            {data?.map((category) => (
               <SingleCategoryCard key={category.id} {...category} />
-            ))} */}
+            ))}
           </div>
         </div>
       </div>
