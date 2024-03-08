@@ -1,0 +1,3 @@
+.txt {
+  font-size: clamp(1.5rem, 0.786rem + 3.57vw, 4rem);
+}

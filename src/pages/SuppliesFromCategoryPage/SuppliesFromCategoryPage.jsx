@@ -1,6 +1,6 @@
 import classes from './SuppliesFromCategoryPage.module.css';
 
 const SuppliesFromCategoryPage = () => {
-  return <div>SuppliesFromCategoryPage</div>;
+  return <div></div>;
 };
 export default SuppliesFromCategoryPage;

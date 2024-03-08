@@ -1,0 +1,19 @@
+.wrap {
+  padding: 40px 0 80px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.categoryWrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.dark {
+  background-color: var(--black);
+}

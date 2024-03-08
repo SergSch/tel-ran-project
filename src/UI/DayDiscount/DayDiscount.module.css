@@ -7,5 +7,18 @@
   text-align: center;
   color: var(--white);
   background: var(--green);
-  max-width: fit-content;
+}
+
+/* Mobile  */
+
+@media (max-width: 767px) {
+  .wrapper {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 479px) {
+  .wrapper {
+    font-size: 18px;
+  }
 }
