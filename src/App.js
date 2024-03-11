@@ -13,6 +13,7 @@ import AllSalesPage from './pages/AllSalesPage/AllSalesPage';
 import { FaAnglesUp } from 'react-icons/fa6';
 import { useEffect } from 'react';
 
+
 function App() {
   useEffect(() => {
     const scrollButton = document.querySelector('.scroll-to-top');
@@ -38,6 +39,8 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
+
+
       <Footer />
       <button
         className="scroll-to-top"

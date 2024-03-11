@@ -1,7 +1,7 @@
 .discount {
-  position: absolute;
+  /* position: absolute;
   top: 16px;
-  left: 16px;
+  left: 16px; */
   border-radius: 6px;
   padding: 4px 8px;
   background: var(--green);

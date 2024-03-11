@@ -1,0 +1,89 @@
+.wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .wrapper {
+    width: 316px;
+    height: 422px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  .mainPageWrapper {
+    width: 316px;
+    height: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+  }
+  .wrapper:hover,
+  .mainPageWrapper:hover {
+    transform: scale(1.05);
+  }
+
+
+.wrapper {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .photo{
+    width: 316px;
+    height: 284px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+  }
+  .priceSection {
+    display: flex;
+    align-items: center;
+ 
+  }
+  
+  .discountPrice {
+    font-size: 40px;
+    color: #424436;
+  }
+  
+  .originalPrice {
+    font-size: 1em;
+    color: #888;
+    text-decoration: line-through;
+  }
+  
+
+  .info {
+    height: 118px;
+    width: 100%;
+  }
+  .heartIcon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 48px; /* Или другой размер, который вам нужен */
+    height: auto;
+    fill: white; /* Цвет заливки иконки */
+    cursor: pointer;
+  }
+  .basketIcon {
+    position: absolute;
+    top: 44px; /* Расположение под сердечком */
+    right: 16px; /* Отступ справа, аналогично сердечку */
+    width: 48px; /* Размер иконки */
+    height: auto;
+    fill: white; /* Цвет заливки иконки */
+    cursor: pointer;
+  }
