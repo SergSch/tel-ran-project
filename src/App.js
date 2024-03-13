@@ -2,16 +2,17 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import CategoriesPage from './pages/CategoriesPage/CategoriesPage';
 import SuppliesFromCategoryPage from './pages/SuppliesFromCategoryPage/SuppliesFromCategoryPage';
-import SingleSupplyPage from './pages/SingleSupplyPage/SingleSupplyPage';
 import CartPage from './pages/CartPage/CartPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Header from './layout/Header/Header';
 import Footer from './layout/Footer/Footer';
 import AllProductsPage from './pages/AllProductsPage/AllProductsPage';
 import AllSalesPage from './pages/AllSalesPage/AllSalesPage';
+import SingleProductPage from './pages/SingleProductPage/SingleProductPage';
 
 import { FaAnglesUp } from 'react-icons/fa6';
 import { useEffect } from 'react';
+import { ROUTES } from './utils/routes';
 
 function App() {
   useEffect(() => {
@@ -29,14 +30,14 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/allproducts" element={<AllProductsPage />} />
-        <Route path="/allsales" element={<AllSalesPage />} />
-        <Route path="/supllies" element={<SuppliesFromCategoryPage />} />
-        <Route path="/single" element={<SingleSupplyPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/*" element={<NotFoundPage />} />
+        <Route path={ROUTES.HOME} element={<HomePage />} />
+        <Route path={ROUTES.CATEGORIES} element={<CategoriesPage />} />
+        <Route path={ROUTES.ALLPRODUCTS} element={<AllProductsPage />} />
+        <Route path={ROUTES.PRODUCT} element={<SingleProductPage />} />
+        <Route path={ROUTES.ALLSALES} element={<AllSalesPage />} />
+        <Route path={ROUTES.CATEGORY} element={<SuppliesFromCategoryPage />} />
+        <Route path={ROUTES.CART} element={<CartPage />} />
+        <Route path={ROUTES.NOTFOUNDPAGE} element={<NotFoundPage />} />
       </Routes>
       <Footer />
       <button

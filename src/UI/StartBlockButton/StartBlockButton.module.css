@@ -1,0 +1,35 @@
+.wrapper {
+  border-radius: 6px;
+  padding: 16px 56px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  color: var(--white);
+  background-color: var(--green);
+  max-width: max-content;
+}
+
+.wrapper:active {
+  position: relative;
+  top: 1px;
+}
+
+.wrapper:hover {
+  opacity: 0.9;
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 12px 52px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 12px 52px;
+    font-size: 18px;
+  }
+}

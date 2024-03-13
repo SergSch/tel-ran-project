@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useClickOutside = (ref, callback) => {
+export const useClickOutsaide = (ref, callback) => {
   const handleClick = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
       callback();

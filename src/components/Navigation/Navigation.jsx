@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import DayDiscount from '../../UI/DayDiscount/DayDiscount';
 import classes from './Navigation.module.css';
 import { useSelector } from 'react-redux';
+import { ROUTES } from '../../utils/routes';
 
 const Navigation = () => {
   const { theme } = useSelector((state) => state.theme);
@@ -17,7 +18,7 @@ const Navigation = () => {
         <ul className={classes.nav}>
           <li className={classes.text}>
             <NavLink
-              to={'/'}
+              to={ROUTES.HOME}
               className={({ isActive, isPending }) =>
                 `${isPending ? 'pending ' : ''} ${
                   isActive ? classes.active : ''
@@ -29,7 +30,7 @@ const Navigation = () => {
           </li>
           <li className={classes.text}>
             <NavLink
-              to={'/categories'}
+              to={ROUTES.CATEGORIES}
               className={({ isActive, isPending }) =>
                 `${isPending ? 'pending ' : ''} ${
                   isActive ? classes.active : ''
@@ -53,7 +54,7 @@ const Navigation = () => {
           </li>
           <li className={classes.text}>
             <NavLink
-              to={'/allsales'}
+              to={ROUTES.ALLSALES}
               className={({ isActive, isPending }) =>
                 `${isPending ? 'pending ' : ''} ${
                   isActive ? classes.active : ''

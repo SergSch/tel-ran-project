@@ -1,6 +1,6 @@
 import classes from './SmallButton.module.css';
 
-const SmallButton = ({ text }) => {
-  return <button className={classes.btn}>{text}</button>;
+const SmallButton = ({ textSmallBtn }) => {
+  return <button className={classes.btn}>{textSmallBtn}</button>;
 };
 export default SmallButton;

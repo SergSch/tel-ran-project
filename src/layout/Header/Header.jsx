@@ -11,7 +11,7 @@ import close from '../../assets/images/header/close.svg';
 import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../../store/reducers/themeSlice';
-import { useClickOutside } from '../../customHooks/useClickOutSide';
+import { useClickOutsaide } from '../../customHooks/useClickOutSide';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const menuRef = useRef(null);
-  useClickOutside(menuRef, () => {
+  useClickOutsaide(menuRef, () => {
     setIsOpen(false);
   });
 

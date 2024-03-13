@@ -56,10 +56,6 @@
   .address {
     width: 100%;
   }
-  .social_box,
-  .work_hours {
-    flex-grow: 1;
-  }
 }
 
 @media (max-width: 999px) {
@@ -81,11 +77,16 @@
   .phone_box {
     width: 100%;
   }
+  .social_box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
   .address {
     min-width: 0;
   }
   .text {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 

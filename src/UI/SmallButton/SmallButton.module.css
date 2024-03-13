@@ -8,3 +8,9 @@
   line-height: 126%;
   color: var(--grey);
 }
+
+@media (max-width: 479px) {
+  .btn {
+    padding: 12px 24px;
+  }
+}

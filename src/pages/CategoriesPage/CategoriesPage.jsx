@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import SingleCategoryCard from '../../components/SingleCategoryCard/SingleCategoryCard';
 import TitleH2 from '../../components/TitleH2/TitleH2';
 import { useGetAllCategoriesQuery } from '../../store/reducers/apiCatigoriesSlice';
@@ -5,6 +6,10 @@ import classes from './CategoriesPage.module.css';
 import { useSelector } from 'react-redux';
 
 const CategoriesPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { data, isLoading, isError, error } = useGetAllCategoriesQuery();
 
   const { theme } = useSelector((state) => state.theme);

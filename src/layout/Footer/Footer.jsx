@@ -2,9 +2,9 @@ import classes from './Footer.module.css';
 import instagram from '../../assets/images/footer/instagram.svg';
 import whatsapp from '../../assets/images/footer/whatsapp.svg';
 import TitleH2 from './../../components/TitleH2/TitleH2';
-import FooterSmallTitle from '../../components/FooterSmallTitle/FooterSmallTitle';
 import GoogleMap from '../../components/GoogleMap/GoogleMap';
 import { useSelector } from 'react-redux';
+import GoodsCategoriesTitle from '../../components/GoodsCategoriesTitle/GoodsCategoriesTitle';
 
 const Footer = () => {
   const { theme } = useSelector((state) => state.theme);
@@ -21,7 +21,7 @@ const Footer = () => {
                   theme === 'dark' ? classes.lightDark : ''
                 }`}
               >
-                <FooterSmallTitle text="Phone" />
+                <GoodsCategoriesTitle text="Phone" footer />
                 <a
                   className={`${classes.text} ${
                     theme === 'dark' ? classes.white : ''
@@ -36,7 +36,7 @@ const Footer = () => {
                   theme === 'dark' ? classes.lightDark : ''
                 }`}
               >
-                <FooterSmallTitle text="Socials" />
+                <GoodsCategoriesTitle text="Socials" footer />
                 <div className={classes.social}>
                   <a
                     href="https://www.instagram.com/startainstitute?igsh=MWR1azFwM3dhaHcxeQ=="
@@ -67,7 +67,7 @@ const Footer = () => {
                   theme === 'dark' ? classes.lightDark : ''
                 }`}
               >
-                <FooterSmallTitle text="Address" />
+                <GoodsCategoriesTitle text="Address" footer />
                 <p
                   className={`${classes.text} ${
                     theme === 'dark' ? classes.white : ''
@@ -81,7 +81,7 @@ const Footer = () => {
                   theme === 'dark' ? classes.lightDark : ''
                 }`}
               >
-                <FooterSmallTitle text="Working Hours" />
+                <GoodsCategoriesTitle text="Working Hours" footer />
                 <p
                   className={`${classes.text} ${
                     theme === 'dark' ? classes.white : ''
