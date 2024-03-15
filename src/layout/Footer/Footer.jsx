@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <footer className={` ${theme === 'dark' ? classes.dark : ''}`}>
-      <div className="container">
+     
         <div className={classes.wrapper}>
           <TitleH2 text="Contact" />
           <div className={classes.contact_block}>
@@ -84,7 +84,7 @@ const Footer = () => {
           </div>
           <GoogleMap />
         </div>
-      </div>
+      
     </footer>
   );
 };
