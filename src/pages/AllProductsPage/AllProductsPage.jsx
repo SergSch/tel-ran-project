@@ -14,7 +14,7 @@ export default function AllProductsPage() {
     <div>
       {shuffledProducts
         ?.slice(0, 4)
-        .map(({ id, title, discount_price, image }) => (
+        .map(({ id, title, discont_price, image }) => (
           // <p key={id}>{title}</p>
           <img src={image} alt={title} />
         ))}
