@@ -10,9 +10,9 @@
   .wrapper {
     width: 316px;
     height: 422px;
-    /* background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
-    background-size: cover; */
+    background-size: cover;
     border-radius: 12px;
     margin-bottom: 16px;
     transition: transform 0.3s ease;
@@ -22,14 +22,13 @@
   .mainPageWrapper {
     width: 316px;
     height: 422px;
-    /* background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover; */
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
     border-radius: 12px;
     margin-bottom: 16px;
     transition: transform 0.3s ease;
-
-gap: 20px;
+    gap: 20px;
   }
   .wrapper:hover,
   .mainPageWrapper:hover {
