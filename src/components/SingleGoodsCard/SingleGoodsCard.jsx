@@ -1,11 +1,16 @@
 import React from 'react';
 import { ReactComponent as HeartIcon } from '../../assets/images/header/like.svg';
-import { ReactComponent as BasketIcon } from '../../assets/images/header/cart.svg';
+import { ReactComponent as BasketIcon } from '../../assets/images/cart.svg';
 import classes from './SingleGoodsCard.module.css';
 import GoodsCategoriesTitle from '../GoodsCategoriesTitle/GoodsCategoriesTitle';
 import { useSelector } from 'react-redux';
 
-const SingleProduktCard = ({ id, title, discont_price, price, image, size }) => {
+const SingleProduktCard = ({  title,
+  image,
+  price,
+  discont_price,
+  size,
+  handleAddToCart }) => {
     // Рассчитываем процент скидки
     const discountPercent = ((price - discont_price) / price) * 100;
 

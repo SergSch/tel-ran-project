@@ -24,6 +24,11 @@
   .bottomSmallBtn {
     display: none;
   }
+  .salesCardWrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
   
   /* Dark mode */
   
@@ -65,5 +70,7 @@
       display: block;
       margin: 0 auto;
     }
+    .salesCardWrapper {
+      grid-template-columns: 1fr;
+    }
   }
-  
