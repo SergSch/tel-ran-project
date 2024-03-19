@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import { useGetAllGoodsQuery } from '../../../store/reducers/apiGoodsSlice';
 import SingleGoodsCard from './../../../components/SingleGoodsCard/SingleGoodsCard';
 import { useSelector, useDispatch } from 'react-redux';
-import TitleBlockWithLine from '../../../components/TitleBlockWithLine/TitleBlockWithLine';
+// import TitleBlockWithLine from '../../../components/TitleBlockWithLine/TitleBlockWithLine';
 import { ROUTES } from '../../../utils/routes';
 import StartBlockButton from '../../../UI/StartBlockButton/StartBlockButton';
 import { addProduct, countTotalSum } from '../../../store/reducers/cartSlice';
 import toast from 'react-hot-toast';
+
+import TitleH2 from '../../../components/TitleH2/TitleH2';
+import Line from '../../../UI/Line/Line';
+import SmallButton from '../../../UI/SmallButton/SmallButton';
+
+
 
 const GoodsBlockMain = () => {
   const { data } = useGetAllGoodsQuery();
@@ -33,12 +39,12 @@ const GoodsBlockMain = () => {
       <div className="container">
         <div className={classes.wrapper}>
           <div className={classes.title_block}>
-          <TitleBlockWithLine
+          {/* <TitleBlockWithLine
             text="Sale"
             textSmallBtn="All sales"
             link={`${ROUTES.ALLPRODUCTS}?category=2`}
-          />
-            {/* <TitleH2 text="Sale" />
+          /> */}
+            <TitleH2 text="Sale" />
             <div className={classes.btn_block}>
               <Line />
               <div className={classes.topSmallBtn}>
@@ -46,7 +52,7 @@ const GoodsBlockMain = () => {
                   <SmallButton text="All sales" link={`${ROUTES.ALLPRODUCTS}?category=2`} />
                 </Link>
               </div>
-            </div> */}
+            </div>
           </div>
 
 {/* выбор 4 карточек */}
@@ -56,6 +62,7 @@ const GoodsBlockMain = () => {
                 key={product.id}
                 to={`${ROUTES.PRODUCT.replace(':id', product.id)}`}
               >
+                
                 <SingleGoodsCard
                   {...product}
                   handleAddToCart={(event) => handleAddToCart(event, product)}
