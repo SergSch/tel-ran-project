@@ -42,8 +42,8 @@ const GoodsBlockMain = () => {
             <div className={classes.btn_block}>
               <Line />
               <div className={classes.topSmallBtn}>
-                <Link to={'/products/sale'}>
-                  <SmallButton text="All sales" link={`${ROUTES.ALLPRODUCTS}?category=2`} />
+                <Link to={`${ROUTES.ALLPRODUCTS}?category=2`}>
+                  <SmallButton text="All sales" />
                 </Link>
               </div>
             </div>

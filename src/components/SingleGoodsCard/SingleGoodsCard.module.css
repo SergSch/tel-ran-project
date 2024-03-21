@@ -10,14 +10,21 @@
   .wrapper {
     width: 316px;
     height: 422px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 12px;
     margin-bottom: 16px;
     transition: transform 0.3s ease;
-   }
+      
+  }
   
   .mainPageWrapper {
     width: 316px;
     height: 422px;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
     border-radius: 12px;
     margin-bottom: 16px;
     transition: transform 0.3s ease;
@@ -44,7 +51,8 @@
     background-size: cover;
     width: 316px;
     height: 284px;
-   }
+   
+  }
   .priceSection {
     display: flex;
     align-items:baseline;
@@ -55,19 +63,18 @@
   
   .discountPrice {
     font-size: 40px;
-    color: var(#424436);
+    color: #424436;
     font-style: normal;
     font-weight: 600;
     line-height: 110%; 
   }
   .discountPrice_dark{
-    color: var(--white)
+    color: white;
   }
   
   .originalPrice {
-    color: #888;
+    color: #888888;
     text-decoration: line-through;
-    color: var(--txt-grey, #8B8B8B);
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -83,7 +90,7 @@
     border-top: 1px solid rgb(221, 221, 221);
 
      }
-
+ 
   .heartIcon {
     position: absolute;
     top: 16px;
@@ -103,15 +110,15 @@
     cursor: pointer;
   }
   .heartIcon:active , .basketIcon:active{
-    fill: chocolate;
+    fill: black;
   }
   .discountFlag {
     position: absolute;
     top: 20px;
     left: 24px;
-    border-radius: var(--radius-small, 6px);/* Цвет фона флажка */
-    background: var(--sale, #F26D22);
-    color: var(--txt-white, #FFF);
+    border-radius: 6px;
+    background: #F26D22;
+    color:  #FFFFFF;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -125,7 +132,7 @@
     font-size: 20px;
     line-height: 130%;
     text-align: center;
-    color: var(--black);
+    color: black;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -134,7 +141,7 @@
   }
   
   .title_dark {
-    color: var(--white);
+    color: white;
   }
   
   /* Mobile */
