@@ -12,6 +12,7 @@ import TitleH2 from '../../components/TitleH2/TitleH2';
 import Line from '../../UI/Line/Line';
 import SmallButton from '../../UI/SmallButton/SmallButton';
 import { useEffect, useState } from 'react';
+import FiltrationBar from '../../components/FiltrationBar/FiltrationBar';
 
 
 export default function AllProductsPage() {
@@ -25,12 +26,12 @@ useEffect(() => {
   const { theme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
-  // Get id of category
-  let location = useLocation();
+  // // Get id of category
+  // let location = useLocation();
 
-    // Get number of passed category for initialization group of products
-    const params = new URLSearchParams(location.search);
-    let category = params.get('category');
+  //   // Get number of passed category for initialization group of products
+  //   const params = new URLSearchParams(location.search);
+  //   let category = params.get('category');
 
   
 //   отбор рендомной последовательности
@@ -59,32 +60,12 @@ const shuffledProducts = data ? [...data].sort(() => Math.random() - 0.5) : [];
             <StartBlockButton textSmallBtn="All products" dontClick />
 
 
-            {location?.state?.categoryId && (
-              <>
-                <Link to={ROUTES.CATEGORIES}>
-                  <StartBlockButton textSmallBtn="Categories" />
-                </Link>
-                <Line short />
-                <StartBlockButton
-                  textSmallBtn={location?.state?.categoryTitle}
-                />
-              </>
-            )}
-            {!location?.state?.categoryId && category && category === '1' && (
-              <StartBlockButton textSmallBtn="All products" dontClick />
-            )}
-            {!location?.state?.categoryId && category && category === '2' && (
-              <StartBlockButton textSmallBtn="Discounted items" dontClick />
-            )}
+            
           </div>
-          {location && location?.state?.categoryTitle && (
-            <TitleH2 text={location?.state?.categoryTitle} />
-          )}
-          {category === '1' && <TitleH2 text="All products" />}
-          {category === '2' && <TitleH2 text="Discounted items" />}
+         
+         <TitleH2 text="All products" />
 
-
-
+        <FiltrationBar/>
 
 
           <div className={classes.goodsWrapper}>

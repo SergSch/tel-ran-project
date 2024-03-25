@@ -68,6 +68,10 @@
   .title_block {
     gap: 16px;
   }
+
+  .breadCrumbs {
+    display: none;
+  }
 }
 
 @media (max-width: 479px) {
@@ -75,13 +79,8 @@
     grid-template-columns: 1fr;
   }
 
-  .topSmallBtn {
+  .breadCrumbs {
     display: none;
-  }
-
-  .bottomSmallBtn {
-    display: block;
-    margin: 0 auto;
   }
 
   .salesCardWrapper {
