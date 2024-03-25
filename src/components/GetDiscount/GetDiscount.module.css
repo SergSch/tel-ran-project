@@ -5,7 +5,11 @@
 }
 
 .wrapper {
+<<<<<<< HEAD
   width: 1500px;
+=======
+ 
+>>>>>>> f5f94bdfceaa0b972cd15b3b681148b0d8c41733
   padding: 32px 32px 0 32px;
   background: linear-gradient(-223deg, #339933 0%, #0B710B 100%);
 }
