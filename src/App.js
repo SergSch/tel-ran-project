@@ -10,8 +10,11 @@ import Footer from './layout/Footer/Footer';
 import AllProductsPage from './pages/AllProductsPage/AllProductsPage';
 import AllSalesPage from './pages/AllSalesPage/AllSalesPage';
 
+
 import { FaAnglesUp } from 'react-icons/fa6';
 import { useEffect } from 'react';
+import FormPost from './components/FormPost/FormPost';
+import GetDiscount from './components/GetDiscount/GetDiscount';
 
 function App() {
   useEffect(() => {
@@ -28,6 +31,8 @@ function App() {
   return (
     <div>
       <Header />
+      <FormPost/>
+      <GetDiscount/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/categories" element={<CategoriesPage />} />
