@@ -10,8 +10,11 @@ import { BASE_URL } from '../../utils/constants';
 const SingleProduktCard = ({ id, title, discont_price, price, image, size }) => {
 
   const dispatch = useDispatch();
-    // Рассчитываем процент скидки, если discount_price не равно null
-  const discountPercent = discont_price ? ((price - discont_price) / price) * 100 : 0;
+// Если discont_price пусто или не определено, используем price
+const effectiveDiscontPrice = discont_price || price;
+
+// Рассчитываем процент скидки, если discont_price не равно null и не пусто
+const discountPercent = discont_price ? ((price - effectiveDiscontPrice) / price) * 100 : 0;
 
     const { theme } = useSelector((state) => state.theme);
      // Функция для добавления товара в корзину
@@ -42,9 +45,20 @@ const SingleProduktCard = ({ id, title, discont_price, price, image, size }) => 
             </h4> 
 
             <div className={classes.priceSection}>
-          <p className={`${classes.discountPrice} ${theme === 'dark' ? classes.discountPrice_dark: ''}`}>${discont_price}</p>
-          <p className={classes.originalPrice}>${price}</p>
-        </div>
+              {/* discont_price не пусто, отображается и цена со скидкой, и оригинальная цена. Если discont_price пусто, отображается только price со стилем .discountPrice. Это обеспечивает, что стиль .discountPrice применяется только к цене со скидкой или к обычной цене, если скидка отсутствует */}
+    {discont_price ? (
+      <>
+        <p className={`${classes.discountPrice} ${theme === 'dark' ? classes.discountPrice_dark : ''}`}>
+          ${effectiveDiscontPrice}
+        </p>
+        <p className={classes.originalPrice}>${price}</p>
+      </>
+    ) : (
+      <p className={`${classes.discountPrice} ${theme === 'dark' ? classes.discountPrice_dark : ''}`}>
+        ${price}
+      </p>
+    )}
+  </div>
       </div>
      
       </div>
