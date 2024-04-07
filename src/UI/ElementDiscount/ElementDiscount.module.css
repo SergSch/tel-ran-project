@@ -1,7 +1,4 @@
 .discount {
-  position: absolute;
-  top: 16px;
-  left: 16px;
   border-radius: 6px;
   padding: 4px 8px;
   background: var(--green);
@@ -10,4 +7,10 @@
   line-height: 130%;
   letter-spacing: 0.03em;
   color: var(--white);
+}
+
+@media (max-width: 767px) {
+  .discount {
+    font-size: 18px;
+  }
 }

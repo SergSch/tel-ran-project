@@ -1,19 +1,27 @@
-.title {
+.title,
+.footerTitle {
   font-weight: 500;
   font-size: 20px;
   line-height: 130%;
-  text-align: center;
   color: var(--black);
+  word-break: break-all;
 }
 
-.dark {
+.footerTitle {
+  color: var(--grey);
+}
+
+/* Dark mode */
+.dark.title {
   color: var(--white);
 }
 
 /* Mobile */
 
-@media (max-width: 479px) {
-  .title {
+@media (max-width: 767px) {
+
+  .title,
+  .footerTitle {
     font-size: 18px;
   }
 }
