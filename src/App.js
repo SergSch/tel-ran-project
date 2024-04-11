@@ -1,26 +1,25 @@
-import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
-import CategoriesPage from './pages/CategoriesPage/CategoriesPage';
-import SuppliesFromCategoryPage from './pages/SuppliesFromCategoryPage/SuppliesFromCategoryPage';
-import SingleSupplyPage from './pages/SingleSupplyPage/SingleSupplyPage';
-import CartPage from './pages/CartPage/CartPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import Header from './layout/Header/Header';
-import Footer from './layout/Footer/Footer';
-import AllProductsPage from './pages/AllProductsPage/AllProductsPage';
-import AllSalesPage from './pages/AllSalesPage/AllSalesPage';
-
-import { FaAnglesUp } from 'react-icons/fa6';
-import { useEffect } from 'react';
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
+import SuppliesFromCategoryPage from "./pages/SuppliesFromCategoryPage/SuppliesFromCategoryPage";
+import SingleSupplyPage from "./pages/SingleSupplyPage/SingleSupplyPage";
+import CartPage from "./pages/CartPage/CartPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Header from "./layout/Header/Header";
+import Footer from "./layout/Footer/Footer";
+import AllProductsPage from "./pages/AllProductsPage/AllProductsPage";
+import AllSalesPage from "./pages/AllSalesPage/AllSalesPage";
+import { FaAnglesUp } from "react-icons/fa6";
+import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    const scrollButton = document.querySelector('.scroll-to-top');
-    window.addEventListener('scroll', () => {
+    const scrollButton = document.querySelector(".scroll-to-top");
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
-        scrollButton.classList.remove('d-none');
+        scrollButton.classList.remove("d-none");
       } else {
-        scrollButton.classList.add('d-none');
+        scrollButton.classList.add("d-none");
       }
     });
   }, []);
