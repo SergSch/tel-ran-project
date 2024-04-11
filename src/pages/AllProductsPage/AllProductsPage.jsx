@@ -1,7 +1,7 @@
 import classes from './AllProductsPage.module.css';
 import { Link, useLocation  } from 'react-router-dom';
 import { useGetAllGoodsQuery } from '../../store/reducers/apiGoodsSlice';
-import SingleGoodsCard from '../../components/SingleGoodsCard/SingleGoodsCard';
+import SingleProductCard from '../../components/SingleProductCard/SingleProductCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { ROUTES } from '../../utils/routes';
 import StartBlockButton from '../../UI/StartBlockButton/StartBlockButton';
@@ -75,7 +75,7 @@ const shuffledProducts = data ? [...data].sort(() => Math.random() - 0.5) : [];
                 to={`${ROUTES.PRODUCT.replace(':id', product.id)}`}
               >
                 
-                <SingleGoodsCard
+                <SingleProductCard
                   {...product}
                   handleAddToCart={(event) => handleAddToCart(event, product)}
                 />
