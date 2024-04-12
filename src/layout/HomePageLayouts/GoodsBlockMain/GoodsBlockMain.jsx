@@ -1,7 +1,7 @@
 import classes from './GoodsBlockMain.module.css';
 import { Link } from 'react-router-dom';
 import { useGetAllGoodsQuery } from '../../../store/reducers/apiGoodsSlice';
-import SingleGoodsCard from './../../../components/SingleGoodsCard/SingleGoodsCard';
+import SingleGoodsCard from '../../../components/SingleProductCard/SingleProductCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { ROUTES } from '../../../utils/routes';
 import StartBlockButton from '../../../UI/StartBlockButton/StartBlockButton';

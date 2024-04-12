@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactComponent as HeartIcon } from '../../assets/images/header/like.svg';
 import { ReactComponent as BasketIcon } from '../../assets/images/cart.svg';
-import classes from './SingleGoodsCard.module.css';
+import classes from './SingleProductCard.module.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../store/reducers/cartSlice';
