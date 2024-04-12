@@ -30,7 +30,7 @@ a:hover {
 
 /* Common */
 .App{
-  width: 1344px;
+  max-width: 1344px;
   display: flex;
   flex-direction: column;
   align-items: center;

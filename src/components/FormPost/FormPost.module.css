@@ -15,14 +15,13 @@
   background-color: transparent;
   font-size: 20px;
   font-weight: 500;
-  line-height: 26;
+  line-height: 26px; /* Добавлены пиксели для line-height */
   color: white;
   outline: none;
 }
 
-.input::placeholder{
+.input::placeholder {
   color: white;
-
 }
 
 .input:focus {
@@ -35,7 +34,7 @@
 
 .container_error {
   width: clamp(17.5rem, calc(15.09rem + 12.06vw), 29.56rem);
-  height: 28px;
+  height: 28px; /* Добавлены пиксели для height */
 }
 
 .error {
@@ -55,12 +54,13 @@
 
   font-size: 20px;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 26px; /* Добавлены пиксели для line-height */
   text-align: center;
   cursor: pointer;
+}
 
 @media (max-width: 1105px) {
-  margin-bottom: 0;
-
+  .btn {
+    margin-bottom: 0;
   }
 }
