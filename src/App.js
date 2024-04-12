@@ -33,6 +33,7 @@ function App() {
       <Header />
       <FormPost/>
       <GetDiscount/>
+      <NotFoundPage/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/categories" element={<CategoriesPage />} />
