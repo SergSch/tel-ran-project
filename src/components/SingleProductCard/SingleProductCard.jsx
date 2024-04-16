@@ -1,69 +1,104 @@
-import React from 'react';
-import { ReactComponent as HeartIcon } from '../../assets/images/header/like.svg';
-import { ReactComponent as BasketIcon } from '../../assets/images/cart.svg';
-import classes from './SingleProductCard.module.css';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { addProduct } from '../../store/reducers/cartSlice';
+import ElementDiscount from '../../UI/ElementDiscount/ElementDiscount';
 import { BASE_URL } from '../../utils/constants';
+import GoodsCategoriesTitle from '../GoodsCategoriesTitle/GoodsCategoriesTitle';
+import TitleThrough from '../TitleThrough/TitleThrough';
+import classes from './SingleProductCard.module.css';
+import ProductAndCartTitle from './../ProductAndCartTitle/ProductAndCartTitle';
+import { useSelector, useDispatch } from 'react-redux';
+import { ReactComponent as LikeIcon } from '../../assets/images/header/like.svg';
+import { ReactComponent as CartIconNew } from '../../assets/images/cart.svg';
+import { addProduct, countTotalSum } from '../../store/reducers/cartSlice';
+import toast from 'react-hot-toast';
+import {
+  addFavouritesItem,
+  deleteFavouritesItem,
+} from '../../store/reducers/favouritesSlice';
 
-const SingleProduktCard = ({ id, title, discont_price, price, image, size }) => {
+const SingleProductCard = ({ product, none }) => {
+  const { theme } = useSelector((state) => state.theme);
+  const { id, title, image, price, discont_price } = product;
+
+  const isCheckedFavourites = useSelector((state) => {
+    return state.favourites.favouritesProducts.some(
+      (favouriteProduct) => favouriteProduct.id === id
+    );
+  });
+
+  const isCheckedProductInCart = useSelector((state) => {
+    return state.cart.productsInCart.some((product) => product.id === id);
+  });
 
   const dispatch = useDispatch();
-// Если discont_price пусто или не определено, используем price
-const effectiveDiscontPrice = discont_price || price;
 
-// Рассчитываем процент скидки, если discont_price не равно null и не пусто
-const discountPercent = discont_price ? ((price - effectiveDiscontPrice) / price) * 100 : 0;
-
-    const { theme } = useSelector((state) => state.theme);
-     // Функция для добавления товара в корзину
-  const handleAddToCart = () => {
-    const product = { id, title, price: discont_price || price, image, quantity: 1 };
+  const handleAddToCart = (event) => {
+    event.preventDefault();
     dispatch(addProduct(product));
+    dispatch(countTotalSum());
+    toast.success('Added to Cart successfully');
   };
+
+  const handleAddToFavourites = (event) => {
+    event.preventDefault();
+    if (isCheckedFavourites) {
+      dispatch(deleteFavouritesItem(product));
+      toast.success('Delete from favourites successfully');
+    } else {
+      dispatch(addFavouritesItem(product));
+      toast.success('Added to favourites successfully');
+    }
+  };
+
+  const percentDiscount = Math.round(((price - discont_price) / price) * 100);
 
   return (
     <div className={classes.wrap}>
-    <div className={size ? classes.mainPageWrapper : classes.wrapper}>
-
-         {/* Флажок скидки */}
-         {discountPercent > 0 && (
-        <div className={classes.discountFlag}>
-          -{discountPercent.toFixed(0)}%
+      <div
+        className={none ? classes.modalWrapper : classes.wrapper}
+        style={{ backgroundImage: `url(${BASE_URL}/${image})` }}
+      >
+        <div className={classes.elemDiscontWrap}>
+          {discont_price && <ElementDiscount discount={percentDiscount} />}
         </div>
-        )}
-        <div  className={classes.photo} style={{ backgroundImage: `url('${BASE_URL}/${image}')` }}>
-            <div className={classes.heartIcon}><HeartIcon className={classes.heartIcon} /></div>
-
-            <div className={classes.basketIcon} onClick={handleAddToCart}><BasketIcon className={classes.basketIcon} /></div>
+        <div className={classes.imagesWrap}>
+          <div className={classes.wrapperIcons}>
+            <LikeIcon
+              className={classes.img}
+              onClick={handleAddToFavourites}
+              style={{
+                fill: isCheckedFavourites ? 'var(--green)' : '',
+              }}
+            />
+            <CartIconNew
+              className={classes.img}
+              onClick={handleAddToCart}
+              style={{
+                display: none ? 'none' : '',
+                fill: isCheckedProductInCart ? 'var(--green)' : '',
+              }}
+            />
+          </div>
         </div>
-      
-      <div className={classes.info}>
-             <h4 className={`${classes.title} ${theme === 'dark' ? classes.title_dark : ''}`}>
-                {title}
-            </h4> 
-
-            <div className={classes.priceSection}>
-              {/* discont_price не пусто, отображается и цена со скидкой, и оригинальная цена. Если discont_price пусто, отображается только price со стилем .discountPrice. Это обеспечивает, что стиль .discountPrice применяется только к цене со скидкой или к обычной цене, если скидка отсутствует */}
-    {discont_price ? (
-      <>
-        <p className={`${classes.discountPrice} ${theme === 'dark' ? classes.discountPrice_dark : ''}`}>
-          ${effectiveDiscontPrice}
-        </p>
-        <p className={classes.originalPrice}>${price}</p>
-      </>
-    ) : (
-      <p className={`${classes.discountPrice} ${theme === 'dark' ? classes.discountPrice_dark : ''}`}>
-        ${price}
-      </p>
-    )}
-  </div>
       </div>
-     
+      <div
+        className={`${classes.aboutBlock} ${
+          theme === 'dark' ? classes.dark : ''
+        }`}
+        style={{ backgroundColor: none ? 'var(--white)' : '' }}
+      >
+        <GoodsCategoriesTitle
+          text={`${title ? title.substring(0, 17) : ''}...`}
+          none={none ? none : ''}
+        />
+        <div className={classes.priceBlock}>
+          <ProductAndCartTitle
+            text={discont_price ? `$${discont_price}` : `$${price}`}
+            weight
+            none={none ? none : ''}
+          />
+          {discont_price && <TitleThrough text={`${'$' + price}`} smallText />}
+        </div>
       </div>
     </div>
   );
 };
-
-export default SingleProduktCard;
+export default SingleProductCard;
