@@ -1,4 +1,4 @@
-import FormPost from '../FormPost/FormPost';
+import FormPost from '../Form/Form';
 import image from '../../assets/images/homePage/image_form.png';
 import classes from './GetDiscount.module.css'
 

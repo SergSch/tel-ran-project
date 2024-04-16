@@ -13,7 +13,7 @@ import AllSalesPage from './pages/AllSalesPage/AllSalesPage';
 
 import { FaAnglesUp } from 'react-icons/fa6';
 import { useEffect } from 'react';
-import FormPost from './components/FormPost/FormPost';
+import FormPost from './components/Form/Form';
 import GetDiscount from './components/GetDiscount/GetDiscount';
 
 function App() {
