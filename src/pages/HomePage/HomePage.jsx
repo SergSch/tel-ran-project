@@ -7,6 +7,7 @@ import GoodsBlockMain from '../../layout/HomePageLayouts/GoodsBlockMain/GoodsBlo
 
 
 import classes from './HomePage.module.css';
+import FormBlock from '../../layout/HomePageLayouts/FormBlock/FormBlock';
 
 const HomePage = () => {
   return (
@@ -17,7 +18,7 @@ const HomePage = () => {
 
       <CategoriesBlockMain />
 
-
+      <FormBlock/>
       <GoodsBlockMain/>
 
 

@@ -28,7 +28,7 @@ function App() {
   return (
     <div>
       <Header />
-      <FormBlock/>
+     
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/categories" element={<CategoriesPage />} />
