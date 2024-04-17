@@ -17,7 +17,7 @@ import TitleH2 from "../../components/TitleH2/TitleH2";
 import ProductModal from "../../components/ProductModal/ProductModal";
 import whiteCross from "../../assets/images/icons/whiteCross.svg";
 import CartForm from "../../components/CartForm/CartForm";
-import StartBlockButton from "./../../UI/StartBlockButton/StartBlockButton";
+import  MainBannerButton from "./../../UI/MainBannerButton/MainBannerButton";
 
 const CartPage = () => {
   // opened page is displayed at the top
@@ -98,7 +98,7 @@ const CartPage = () => {
                 </p>
               </div>
               <Link to={`${ROUTES.ALLPRODUCTS}?category=1`}>
-                <StartBlockButton text="Continue Shopping" />
+                <MainBannerButton text="Continue Shopping" />
               </Link>
             </>
           ) : (
@@ -133,7 +133,7 @@ const CartPage = () => {
           )}
           <div className={classes.bottomSmallBtn}>
             <Link to={`${ROUTES.ALLPRODUCTS}?category=1`}>
-              <StartBlockButton textSmallBtn="Back to the store" />
+              <MainBannerButton textSmallBtn="Back to the store" />
             </Link>
           </div>
         </div>
