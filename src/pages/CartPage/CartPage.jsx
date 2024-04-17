@@ -12,12 +12,12 @@ import {
   deleteProduct,
 } from "../../store/reducers/cartSlice";
 import { Link } from "react-router-dom";
-import StartBlockButton from "../../UI/StartBlockButton/StartBlockButton";
 import ProductAndCartTitle from "../../components/ProductAndCartTitle/ProductAndCartTitle";
 import TitleH2 from "../../components/TitleH2/TitleH2";
 import ProductModal from "../../components/ProductModal/ProductModal";
 import whiteCross from "../../assets/images/icons/whiteCross.svg";
 import CartForm from "../../components/CartForm/CartForm";
+import StartBlockButton from "./../../UI/StartBlockButton/StartBlockButton";
 
 const CartPage = () => {
   // opened page is displayed at the top
