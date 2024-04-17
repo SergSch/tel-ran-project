@@ -2,11 +2,12 @@ import CategoriesBlockMain from '../../layout/HomePageLayouts/CategoriesBlockMai
 
 import MainBanner from '../../layout/HomePageLayouts/MainBanner/MainBanner';
 
-import GoodsBlockMain from '../../layout/HomePageLayouts/GoodsBlockMain/GoodsBlockMain';
+import SalesBlock from '../../layout/HomePageLayouts/SalesBlock/SalesBlock';
 
 
 
 import classes from './HomePage.module.css';
+
 
 const HomePage = () => {
   return (
@@ -18,7 +19,7 @@ const HomePage = () => {
       <CategoriesBlockMain />
 
 
-      <GoodsBlockMain/>
+      <SalesBlock/>
 
 
     </div>

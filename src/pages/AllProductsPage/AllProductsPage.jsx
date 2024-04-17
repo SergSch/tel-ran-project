@@ -1,92 +1,149 @@
-import classes from './AllProductsPage.module.css';
-import { Link, useLocation  } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useGetAllGoodsQuery } from '../../store/reducers/apiGoodsSlice';
-import SingleProductCard from '../../components/SingleProductCard/SingleProductCard';
-import { useSelector, useDispatch } from 'react-redux';
+import classes from './AllProductsPage.module.css';
+import { useSelector } from 'react-redux';
+import TitleH2 from '../../components/TitleH2/TitleH2';
+import SingleProductCard from './../../components/SingleProductCard/SingleProductCard';
+import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 import StartBlockButton from '../../UI/StartBlockButton/StartBlockButton';
-import { addProduct, countTotalSum } from '../../store/reducers/cartSlice';
-import toast from 'react-hot-toast';
-
-import TitleH2 from '../../components/TitleH2/TitleH2';
 import Line from '../../UI/Line/Line';
-import SmallButton from '../../UI/SmallButton/SmallButton';
-import { useEffect, useState } from 'react';
 import FiltrationBar from '../../components/FiltrationBar/FiltrationBar';
-
+import { useFiltration } from '../../customHooks/useFiltration';
+import { blockBtnText } from '../../utils/functions';
 
 export default function AllProductsPage() {
-
-// opened page is displayed at the top
-useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
-
-  const { data } = useGetAllGoodsQuery();
+  // opened page is displayed at the top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { theme } = useSelector((state) => state.theme);
-  const dispatch = useDispatch();
+  const { minPrice, maxPrice, sorted } = useSelector((store) => store.filter);
+  const { favouritesProducts } = useSelector((store) => store.favourites);
 
-  // // Get id of category
-  // let location = useLocation();
+  const [check, setCheck] = useState(false);
 
-  //   // Get number of passed category for initialization group of products
-  //   const params = new URLSearchParams(location.search);
-  //   let category = params.get('category');
+  const { data, isLoading, isError, error } = useGetAllGoodsQuery();
+  const products = useFiltration(data, minPrice, maxPrice, sorted);
+  const favouritesProductsFiltered = useFiltration(
+    favouritesProducts,
+    minPrice,
+    maxPrice,
+    sorted
+  );
 
-  
-//   отбор рендомной последовательности
+  // Get id of category
+  let location = useLocation();
 
-const shuffledProducts = data ? [...data].sort(() => Math.random() - 0.5) : [];
+  // Get array products of category
+  const filteredByCategory = products?.filter(
+    (product) => product.categoryId === location?.state?.categoryId
+  );
 
+  // Get number of passed category for initialization group of products
+  const params = new URLSearchParams(location.search);
+  let category = params.get('category');
 
-// Добавление в корзину
-  const handleAddToCart = (event, product) => {
-    event.preventDefault();
-    dispatch(addProduct(product));
-    dispatch(countTotalSum());
-    toast.success('Added to Cart successfully');
-  };
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const category = params.get('category');
+    setCheck(category === '2');
+  }, [location.search]);
+
+  // Get array discounted products
+  const filteredBySales = products?.filter(
+    (product) => product.discont_price !== null
+  );
+
   return (
-    <div className={` ${theme === 'dark' ? classes.dark : ''}`}>
+    <div className={theme === 'dark' ? classes.dark : ''}>
+      {isError ? <h3>Your page is {error.data.error}</h3> : null}
       <div className="container">
         <div className={classes.wrapper}>
-
-
           <div className={classes.breadCrumbs}>
             <Link to={ROUTES.HOME}>
               <StartBlockButton textSmallBtn="Main Page" />
             </Link>
             <Line short />
-            <StartBlockButton textSmallBtn="All products" dontClick />
-
-
-            
-          </div>
-         
-         <TitleH2 text="All products" />
-
-        <FiltrationBar/>
-
-
-          <div className={classes.goodsWrapper}>
-          {shuffledProducts?.map((product) => (
-              <Link
-                key={product.id}
-                to={`${ROUTES.PRODUCT.replace(':id', product.id)}`}
-              >
-                
-                <SingleProductCard
-                  {...product}
-                  handleAddToCart={(event) => handleAddToCart(event, product)}
+            {location?.state?.categoryId && (
+              <>
+                <Link to={ROUTES.CATEGORIES}>
+                  <StartBlockButton textSmallBtn="Categories" />
+                </Link>
+                <Line short />
+                <StartBlockButton
+                  textSmallBtn={location?.state?.categoryTitle}
+                  dontClick
                 />
-              </Link>
-            ))}
-        </div>
-        <div className={classes.bottomSmallBtn}>
-            <Link to={`${ROUTES.ALLPRODUCTS}?category=2`}>
-              <StartBlockButton textSmallBtn="All sales" />
-            </Link>
+              </>
+            )}
+            {blockBtnText(category) && (
+              <StartBlockButton
+                textSmallBtn={blockBtnText(category)}
+                dontClick
+              />
+            )}
           </div>
+          {location && location?.state?.categoryTitle && (
+            <TitleH2 text={location?.state?.categoryTitle} />
+          )}
+          {category === '1' && <TitleH2 text="All products" />}
+          {category === '2' && <TitleH2 text="Discounted items" />}
+          {category === '3' && <TitleH2 text="Liked products" />}
+          <div>
+            <FiltrationBar
+              none={category === '2' || category === '3' ? 'none' : false}
+              setCheck={setCheck}
+            />
+          </div>
+          {isLoading ? (
+            <div className="loading">
+              <div className="loading_content"></div>
+            </div>
+          ) : (
+            <div className={classes.productsWrapper}>
+              {check || category === '2'
+                ? filteredBySales.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`${ROUTES.PRODUCT.replace(':id', product.id)}`}
+                    >
+                      <SingleProductCard product={product} />
+                    </Link>
+                  ))
+                : filteredByCategory.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`${ROUTES.PRODUCT.replace(':id', product.id)}`}
+                    >
+                      <SingleProductCard product={product} />
+                    </Link>
+                  ))}
+              {category &&
+                category === '1' &&
+                !check &&
+                products?.map((product) => (
+                  <Link
+                    key={product.id}
+                    to={`${ROUTES.PRODUCT.replace(':id', product.id)}`}
+                  >
+                    <SingleProductCard product={product} />
+                  </Link>
+                ))}
+
+              {category &&
+                category === '3' &&
+                !check &&
+                favouritesProductsFiltered?.map((product) => (
+                  <Link
+                    key={product.id}
+                    to={`${ROUTES.PRODUCT.replace(':id', product.id)}`}
+                  >
+                    <SingleProductCard product={product} />
+                  </Link>
+                ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
