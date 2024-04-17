@@ -11,6 +11,7 @@ import AllProductsPage from "./pages/AllProductsPage/AllProductsPage";
 import AllSalesPage from "./pages/AllSalesPage/AllSalesPage";
 import { FaAnglesUp } from "react-icons/fa6";
 import { useEffect } from "react";
+import FormBlock from "./layout/HomePageLayouts/FormBlock/FormBlock";
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
   return (
     <div>
       <Header />
+      <FormBlock/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/categories" element={<CategoriesPage />} />
