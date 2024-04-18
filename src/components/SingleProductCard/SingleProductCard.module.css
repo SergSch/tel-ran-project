@@ -4,277 +4,125 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
-}
-
-.wrapper {
-  width: 316px;
-  height: 422px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  transition: transform 0.3s ease;
-
-}
-
-.mainPageWrapper {
-  width: 316px;
-  height: 422px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  transition: transform 0.3s ease;
-  gap: 20px;
-}
-
-.wrapper:hover,
-.mainPageWrapper:hover {
-  transform: scale(1.05);
-}
-
-
-.wrapper {
-  border: 1px solid var(--grey-divider);
   border-radius: 12px;
   overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease;
+  border: 1px solid var(--grey-divider);
 }
 
-
-.photo {
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 284px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 316px;
-  height: 284px;
-
 }
 
-.priceSection {
-  display: flex;
-  align-items: baseline;
-  padding-top: 16px;
-  gap: 16px;
-
-}
-
-.discountPrice {
-  font-size: 40px;
-  color: var(--black);
-  font-style: normal;
-  font-weight: 600;
-  line-height: 110%;
-}
-
-.discountPrice_dark {
-  color: var(--white);
-}
-
-.originalPrice {
-  color: var(--grey);
-  text-decoration: line-through;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 130%;
-  /* 26px */
-  text-decoration-line: strikethrough;
-}
-
-
-.info {
-  height: 118px;
+.modalWrapper {
+  position: relative;
   width: 100%;
-  padding: 20px 32px 32px 32px;
-  border-top: 1px solid var(--grey-divider);
-
+  height: 284px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: var(--white);
 }
 
-.heartIcon {
+.elemDiscontWrap {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.imagesWrap {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 48px;
-  height: auto;
-  fill: var(--white);
-  /* Цвет заливки иконки */
+}
+
+.aboutBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid var(--grey-divider);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 20px 32px 32px;
+  width: 100%;
+  height: 138px;
+  background-color: var(--white);
+}
+
+.priceBlock {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.wrapperIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.img {
+  fill: white;
+  transition: fill 0.3s;
   cursor: pointer;
 }
 
-.basketIcon {
-  position: absolute;
-  top: 44px;
-  /* Расположение под сердечком */
-  right: 16px;
-  /* Отступ справа, аналогично сердечку */
-  width: 48px;
-  /* Размер иконки */
-  height: auto;
-  fill: var(--white);
-  /* Цвет заливки иконки */
-  cursor: pointer;
+.img:hover {
+  fill: black;
 }
 
-.heartIcon:active,
-.basketIcon:active {
-  fill: var(--black);
+/* Dark mode */
+
+.dark {
+  background-color: var(--black);
 }
-
-.discountFlag {
-  position: absolute;
-  top: 20px;
-  left: 24px;
-  border-radius: 6px;
-  /* background: #F26D22; */
-  /* решить какой цвет плашки */
-  background: var(--green);
-  color: var(--white);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%;
-  /* 26px */
-  letter-spacing: 0.6px;
-  padding: 4px 8px;
-  /* Отступы вокруг текста */
-}
-
-.title {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 130%;
-  text-align: center;
-  color: var(--black);
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  text-align: left;
-}
-
-.title_dark {
-  color: var(--white);
-}
-
-/* Mobile */
-
-@media (max-width: 479px) {
-  .title {
-    font-size: 18px;
-  }
-}
-
-/* Mobile */
 
 @media (max-width: 1439px) {
   .wrapper {
     width: 225px;
-    height: 398px;
-  }
-
-  .mainPageWrapper {
-    width: 225px;
-    height: 398px;
-  }
-
-  .photo {
-    width: 225px;
     height: 250px;
   }
-
-  .info {
-    height: 148px;
-    padding: 20px;
-  }
-
-  .priceSection {
-    padding-top: 12px;
+  .aboutBlock {
     gap: 12px;
+    padding: 20px;
+    height: 148px;
   }
 }
 
 @media (max-width: 999px) {
   .wrapper {
-    width: 352px;
-    height: 372px;
-  }
-
-  .mainPageWrapper {
-    width: 354px;
-    height: 372px;
-  }
-
-  .photo {
     width: 354px;
     height: 250px;
   }
-
-  .info {
+  .aboutBlock {
     height: 122px;
-    padding: 20px;
-  }
-
-  .priceSection {
-    padding-top: 12px;
-    gap: 12px;
   }
 }
 
 @media (max-width: 767px) {
   .wrapper {
     width: 210px;
-    height: 358px;
-  }
-
-  .mainPageWrapper {
-    width: 210px;
-    height: 358px;
-  }
-
-  .photo {
-    width: 210px;
     height: 220px;
   }
-
-  .info {
+  .aboutBlock {
     height: 138px;
-    padding: 20px 32px 32px 32px;
-  }
-
-  .priceSection {
-    padding-top: 12px;
-    gap: 12px;
   }
 }
 
 @media (max-width: 479px) {
   .wrapper {
     width: 320px;
-    height: 335px;
-  }
-
-  .mainPageWrapper {
-    width: 320px;
-    height: 335px;
-  }
-
-  .photo {
-    width: 320px;
     height: 220px;
   }
-
-  .info {
+  .aboutBlock {
     height: 115px;
-    padding: 20px;
   }
-
-  .priceSection {
-    padding-top: 16px;
-    gap: 12px;
+  .modalWrapper {
+    height: 220px;
   }
 }

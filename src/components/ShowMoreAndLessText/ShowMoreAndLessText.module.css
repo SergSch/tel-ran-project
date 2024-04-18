@@ -1,0 +1,22 @@
+.txt {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: var(--black);
+}
+
+.showTxt {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  text-decoration: underline;
+  color: var(--black);
+  cursor: pointer;
+  max-width: max-content;
+}
+
+/* Dark mode */
+.colorWhite {
+  color: var(--white);
+}

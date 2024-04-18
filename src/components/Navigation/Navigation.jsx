@@ -2,8 +2,9 @@ import { NavLink } from 'react-router-dom';
 import DayDiscount from '../../UI/DayDiscount/DayDiscount';
 import classes from './Navigation.module.css';
 import { useSelector } from 'react-redux';
+import { ROUTES } from '../../utils/routes';
 
-const Navigation = () => {
+const Navigation = ({ setModalActive }) => {
   const { theme } = useSelector((state) => state.theme);
 
   return (
@@ -12,53 +13,45 @@ const Navigation = () => {
         theme === 'dark' ? classes.wrapperDark : ''
       }`}
     >
-      <DayDiscount />
+      <DayDiscount onClick={() => setModalActive(true)} />
       <nav>
         <ul className={classes.nav}>
           <li className={classes.text}>
             <NavLink
-              to={'/'}
-              className={({ isActive, isPending }) =>
-                `${isPending ? 'pending ' : ''} ${
-                  isActive ? classes.active : ''
-                } ${theme === 'dark' ? classes.dark : classes.link}`
-              }
+              to={ROUTES.HOME}
+              className={`${classes.link} ${
+                theme === 'dark' ? classes.dark : classes.light
+              }`}
             >
               Main Page
             </NavLink>
           </li>
           <li className={classes.text}>
             <NavLink
-              to={'/categories'}
-              className={({ isActive, isPending }) =>
-                `${isPending ? 'pending ' : ''} ${
-                  isActive ? classes.active : ''
-                } ${theme === 'dark' ? classes.dark : classes.link}`
-              }
+              to={ROUTES.CATEGORIES}
+              className={`${classes.link} ${
+                theme === 'dark' ? classes.dark : classes.light
+              }`}
             >
               Categories
             </NavLink>
           </li>
           <li className={classes.text}>
             <NavLink
-              to={'/allproducts'}
-              className={({ isActive, isPending }) =>
-                `${isPending ? 'pending ' : ''} ${
-                  isActive ? classes.active : ''
-                } ${theme === 'dark' ? classes.dark : classes.link}`
-              }
+              to={`${ROUTES.ALLPRODUCTS}?category=1`}
+              className={`${classes.link} ${
+                theme === 'dark' ? classes.dark : classes.light
+              }`}
             >
               All products
             </NavLink>
           </li>
           <li className={classes.text}>
             <NavLink
-              to={'/allsales'}
-              className={({ isActive, isPending }) =>
-                `${isPending ? 'pending ' : ''} ${
-                  isActive ? classes.active : ''
-                } ${theme === 'dark' ? classes.dark : classes.link}`
-              }
+              to={`${ROUTES.ALLPRODUCTS}?category=2`}
+              className={`${classes.link} ${
+                theme === 'dark' ? classes.dark : classes.light
+              }`}
             >
               All sales
             </NavLink>

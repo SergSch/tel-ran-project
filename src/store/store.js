@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { apiCatigoriesSlice } from './reducers/apiCatigoriesSlice';
 import { apiGoodsSlice } from './reducers/apiGoodsSlice';
+import { apiPostSlice } from './reducers/apiPostSlice';
 import themeReducer from './reducers/themeSlice';
 import {
   persistStore,
@@ -13,11 +14,18 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import filterReducer from './reducers/filterSlice';
+import cartReducer from './reducers/cartSlice';
+import favouritesReducer from './reducers/favouritesSlice';
 
 const rootReducer = combineReducers({
+  favourites: favouritesReducer,
+  cart: cartReducer,
+  filter: filterReducer,
   theme: themeReducer,
   [apiCatigoriesSlice.reducerPath]: apiCatigoriesSlice.reducer,
   [apiGoodsSlice.reducerPath]: apiGoodsSlice.reducer,
+  [apiPostSlice.reducerPath]: apiPostSlice.reducer,
 });
 
 const persistConfig = {
@@ -36,7 +44,11 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(apiCatigoriesSlice.middleware, apiGoodsSlice.middleware),
+    }).concat(
+      apiCatigoriesSlice.middleware,
+      apiGoodsSlice.middleware,
+      apiPostSlice.middleware
+    ),
 });
 
 export let persistor = persistStore(store);

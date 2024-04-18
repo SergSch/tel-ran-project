@@ -1,0 +1,49 @@
+.btn {
+  border-radius: 6px;
+  width: 316px;
+  height: 58px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  color: var(--white);
+  background: var(--green);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+/* Mobile */
+@media (max-width: 1439px) {
+  .btn {
+    width: 275px;
+  }
+}
+
+@media (max-width: 999px) {
+  .btn {
+    width: 354px;
+  }
+}
+
+@media (max-width: 767px) {
+  .btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    width: 210px;
+    height: 47px;
+  }
+}
+
+@media (max-width: 479px) {
+  .btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    width: 320px;
+  }
+}
